@@ -7,7 +7,7 @@ class AddRecipe extends Component {
 
 	render() {
 		return (
-			 <div>
+			 <div id="add-recipe-form">
 			   <h2>Add Recipe</h2>
 			   <form>
 			     <label>
