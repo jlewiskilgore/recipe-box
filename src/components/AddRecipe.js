@@ -13,6 +13,8 @@ class AddRecipe extends Component {
 		var ingredients = this.refs.recipeIngredients;
 		console.log("new recipe: ");
 		console.log(name.value + " " + ingredients.value);
+		// Send New Recipe Data to Parent
+		this.props.addNewRecipe(name);
 		// Clear the form's text fields
 		name.value = '';
 		ingredients.value = '';

@@ -7,13 +7,23 @@ import './App.sass';
 class App extends Component {
 	constructor(props) {
 		super(props);
+
+		this.state = { recipes: [] };
+
+		this.appendRecipeList = this.appendRecipeList.bind(this);
+	}
+
+	appendRecipeList(recipe) {
+		console.log("arg: " + recipe.value); 
+		this.setState({ recipes: this.state.recipes.concat([recipe.value]) });
 	}
 
 	render() {
+		console.log(this.state.recipes);
 		return (
 		  <div>
-		    <AddRecipe />
-		    <RecipeList />
+		    <AddRecipe addNewRecipe={this.appendRecipeList} />
+		    <RecipeList recipeList={this.state.recipes} />
 		  </div>
 		);
 	}
