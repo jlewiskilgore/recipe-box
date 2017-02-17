@@ -7,11 +7,16 @@ class RecipeList extends Component {
 	}
 
 	render() {
+		console.log(this.props.recipeList);
 		return (
 		  <div>
-		  	  <RecipeDetail />
-		  	  <RecipeDetail />
-		  	  <RecipeDetail />
+		  	  {
+		  	  	this.props.recipeList.map(function(recipe) {
+		  	  		return (
+		  	  			<RecipeDetail recipeName={recipe} />
+		  	  		)
+		  	  	}.bind(this))
+		  	  }
 		  </div>
 		)
 	}
