@@ -9,15 +9,19 @@ class AddRecipe extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault(); // Don't refresh the page
-		var name = this.refs.recipeName;
-		var ingredients = this.refs.recipeIngredients;
-		console.log("new recipe: ");
-		console.log(name.value + " " + ingredients.value);
+
+		var rName = this.refs.recipeName;
+		var rIngredients = this.refs.recipeIngredients;
+		var recipe = {name: rName.value, ingredients: rIngredients.value};
+
+		console.log("new recipe: " + recipe);
+		console.log(recipe.name.value + " " + recipe.ingredients.value);
 		// Send New Recipe Data to Parent
-		this.props.addNewRecipe(name);
+
+		this.props.addNewRecipe(recipe);
 		// Clear the form's text fields
-		name.value = '';
-		ingredients.value = '';
+		rName.value = '';
+		rIngredients.value = '';
 	}
 
 	render() {

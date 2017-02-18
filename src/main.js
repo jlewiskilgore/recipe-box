@@ -14,8 +14,8 @@ class App extends Component {
 	}
 
 	appendRecipeList(recipe) {
-		console.log("arg: " + recipe.value); 
-		this.setState({ recipes: this.state.recipes.concat([recipe.value]) });
+		console.log("arg: " + recipe); 
+		this.setState({ recipes: this.state.recipes.concat([recipe]) });
 	}
 
 	render() {

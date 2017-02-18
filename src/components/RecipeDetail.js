@@ -6,9 +6,11 @@ class RecipeDetail extends Component {
 	}
 
 	render() {
-		console.log("RD: " + this.props.recipeName);
 		return (
-			  <ul>{this.props.recipeName}</ul>
+			  <ul>
+			    <h1>{this.props.recipeName}</h1>
+			    <p>{this.props.recipeIngredients}</p>
+			  </ul>
 		);
 	}
 }

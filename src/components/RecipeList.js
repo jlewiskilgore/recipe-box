@@ -13,7 +13,7 @@ class RecipeList extends Component {
 		  	  {
 		  	  	this.props.recipeList.map(function(recipe) {
 		  	  		return (
-		  	  			<RecipeDetail recipeName={recipe} />
+		  	  			<RecipeDetail recipeName={recipe.name} recipeIngredients={recipe.ingredients} />
 		  	  		)
 		  	  	}.bind(this))
 		  	  }
