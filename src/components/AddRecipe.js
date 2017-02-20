@@ -29,16 +29,12 @@ class AddRecipe extends Component {
 			 <div id="add-recipe-form">
 			   <h2>Add Recipe</h2>
 			   <form onSubmit={this.handleSubmit}>
-			     <label>
-			       Recipe Name:   
-			         <input type="text" ref="recipeName" />
-			     </label>
+			     <label>Recipe Name:</label>   
+			     <input type="text" ref="recipeName" />
 			     <br />
 			     <br />
-			     <label>
-			       Recipe Ingredients:   
-			         <input type="text" ref="recipeIngredients" />
-			     </label>
+			     <label>Recipe Ingredients: </label> 
+			     <input type="text" ref="recipeIngredients" />
 			     <br />
 			     <br />
                  <input type="submit" value="Save" />
