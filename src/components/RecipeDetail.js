@@ -19,19 +19,29 @@ class RecipeDetail extends Component {
 	}
 
 	render() {
+		var EditButton = require('react-button');
+
 		if(this.state.showIngredients == true) {
 			return (
-			  <ul onClick={this.toggleShowIngredients}>
-			    <h1>{this.props.recipeName}</h1>
-			    <p>{this.props.recipeIngredients}</p>
-			  </ul>
+			  <div className="recipe-list-item">
+			    <ul onClick={this.toggleShowIngredients}>
+			      <h1>{this.props.recipeName}</h1>
+			      <p>{this.props.recipeIngredients}</p>
+			    </ul>
+			    <input type="button" value="Edit Recipe" />
+			    <input type="button" value="Delete Recipe" />
+			  </div>
 			);
 		}
 		else {
 			return (
-			  <ul onClick={this.toggleShowIngredients}>
-			    <h1>{this.props.recipeName}</h1>
-			  </ul>
+		      <div className="recipe-list-item">
+			    <ul onClick={this.toggleShowIngredients}>
+			      <h1>{this.props.recipeName}</h1>
+			    </ul>
+			    <input type="button" value="Edit Recipe" />
+			    <input type="button" value="Delete Recipe" />
+			  </div>
 			);
 		}
 	}
