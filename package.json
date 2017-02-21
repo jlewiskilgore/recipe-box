@@ -10,6 +10,7 @@
     "react": "^15.1.0",
     "react-button": "^1.2.1",
     "react-dom": "^15.1.0",
+    "short-id": "0.1.0-1",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1"
   },

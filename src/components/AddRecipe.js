@@ -10,9 +10,13 @@ class AddRecipe extends Component {
 	handleSubmit(event) {
 		event.preventDefault(); // Don't refresh the page
 
+		// Generate Unique ID for Recipe
+		var ids = require('short-id');
+		var rId = ids.generate();
+
 		var rName = this.refs.recipeName;
 		var rIngredients = this.refs.recipeIngredients;
-		var recipe = {name: rName.value, ingredients: rIngredients.value};
+		var recipe = {id: rId, name: rName.value, ingredients: rIngredients.value};
 
 		console.log("new recipe: " + recipe);
 		console.log(recipe.name.value + " " + recipe.ingredients.value);
