@@ -24,10 +24,10 @@ class RecipeDetail extends Component {
 		if(this.state.showIngredients == true) {
 			return (
 			  <div className="recipe-list-item">
-			    <ul onClick={this.toggleShowIngredients}>
+			    <div onClick={this.toggleShowIngredients}>
 			      <h1>{this.props.recipeName}</h1>
 			      <p>{this.props.recipeIngredients}</p>
-			    </ul>
+			    </div>
 			    <input type="button" value="Edit Recipe" />
 			    <input type="button" value="Delete Recipe" />
 			  </div>
@@ -36,9 +36,9 @@ class RecipeDetail extends Component {
 		else {
 			return (
 		      <div className="recipe-list-item">
-			    <ul onClick={this.toggleShowIngredients}>
+			    <div onClick={this.toggleShowIngredients}>
 			      <h1>{this.props.recipeName}</h1>
-			    </ul>
+			    </div>
 			    <input type="button" value="Edit Recipe" />
 			    <input type="button" value="Delete Recipe" />
 			  </div>

@@ -11,7 +11,7 @@ class RecipeList extends Component {
 		return (
 		  <div>
 		  	  {
-		  	  	this.props.recipeList.map(function(recipe, index) {
+		  	  	this.props.recipeList.map(function(recipe) {
 		  	  		return (
 		  	  			<RecipeDetail recipeId={recipe.id} recipeName={recipe.name} recipeIngredients={recipe.ingredients} />
 		  	  		)
