@@ -4,11 +4,12 @@ import RecipeDetail from './RecipeDetail';
 class RecipeList extends Component {
 	constructor(props) {
 		super(props);
+
+		this.deleteRecipe = this.deleteRecipe.bind(this);
 	}
 
 	deleteRecipe(recipeId) {
-		console.log("Deleting recipe from list...");
-		console.log(recipeId);
+		this.props.deleteRecipeById(recipeId);
 	}
 
 	render() {

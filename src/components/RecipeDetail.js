@@ -20,7 +20,6 @@ class RecipeDetail extends Component {
 	}
 
 	handleDelete() {
-		console.log("test handleDelete");
 		this.props.deleteRecipe(this.props.recipeId);
 	}
 
@@ -42,7 +41,6 @@ class RecipeDetail extends Component {
 		      <div className="recipe-list-item">
 			    <div onClick={this.toggleShowIngredients}>
 			      <h1>{this.props.recipeName}</h1>
-			      <h2>{this.props.recipeId}</h2>
 			    </div>
 			    <input type="button" value="Edit Recipe" />
 			    <input type="button" value="Delete Recipe" onClick={this.handleDelete} />

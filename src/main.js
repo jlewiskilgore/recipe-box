@@ -21,6 +21,8 @@ class App extends Component {
 		console.log(savedRecipes);
 
 		this.appendRecipeList = this.appendRecipeList.bind(this);
+		this.deleteRecipeById = this.deleteRecipeById.bind(this);
+		this.getIndexByRecipeId = this.getIndexByRecipeId.bind(this);
 	}
 
 	appendRecipeList(recipe) {
@@ -29,13 +31,29 @@ class App extends Component {
 		localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
 	}
 
+	deleteRecipeById(recipeId) {
+		var recipeIndex = this.getIndexByRecipeId(recipeId);
+
+		this.setState({
+			recipes: this.state.recipes.filter((x,i) => i != recipeIndex)
+		});
+	}
+
+	getIndexByRecipeId(recipeId) {
+		for(var i=0; i<this.state.recipes.length; i++) {
+			if(this.state.recipes[i].id == recipeId) {
+				return i;
+			}
+		}
+	}
+
 	render() {
 		localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
 
 		return (
 		  <div>
 		    <AddRecipe addNewRecipe={this.appendRecipeList} />
-		    <RecipeList recipeList={this.state.recipes} />
+		    <RecipeList recipeList={this.state.recipes} deleteRecipeById={this.deleteRecipeById} />
 		  </div>
 		);
 	}
