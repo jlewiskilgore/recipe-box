@@ -6,6 +6,11 @@ class RecipeList extends Component {
 		super(props);
 	}
 
+	deleteRecipe(recipeId) {
+		console.log("Deleting recipe from list...");
+		console.log(recipeId);
+	}
+
 	render() {
 		console.log(this.props.recipeList);
 		return (
@@ -13,7 +18,7 @@ class RecipeList extends Component {
 		  	  {
 		  	  	this.props.recipeList.map(function(recipe) {
 		  	  		return (
-		  	  			<RecipeDetail recipeId={recipe.id} recipeName={recipe.name} recipeIngredients={recipe.ingredients} />
+		  	  			<RecipeDetail recipeId={recipe.id} recipeName={recipe.name} recipeIngredients={recipe.ingredients} deleteRecipe={this.deleteRecipe} />
 		  	  		)
 		  	  	}.bind(this))
 		  	  }

@@ -7,6 +7,7 @@ class RecipeDetail extends Component {
 		this.state = { showIngredients: false };
 
 		this.toggleShowIngredients = this.toggleShowIngredients.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 
 	toggleShowIngredients() {
@@ -18,9 +19,12 @@ class RecipeDetail extends Component {
 		}
 	}
 
-	render() {
-		var EditButton = require('react-button');
+	handleDelete() {
+		console.log("test handleDelete");
+		this.props.deleteRecipe(this.props.recipeId);
+	}
 
+	render() {
 		if(this.state.showIngredients == true) {
 			return (
 			  <div className="recipe-list-item">
@@ -29,7 +33,7 @@ class RecipeDetail extends Component {
 			      <p>{this.props.recipeIngredients}</p>
 			    </div>
 			    <input type="button" value="Edit Recipe" />
-			    <input type="button" value="Delete Recipe" />
+			    <input type="button" value="Delete Recipe" onClick={this.handleDelete} />
 			  </div>
 			);
 		}
@@ -38,9 +42,10 @@ class RecipeDetail extends Component {
 		      <div className="recipe-list-item">
 			    <div onClick={this.toggleShowIngredients}>
 			      <h1>{this.props.recipeName}</h1>
+			      <h2>{this.props.recipeId}</h2>
 			    </div>
 			    <input type="button" value="Edit Recipe" />
-			    <input type="button" value="Delete Recipe" />
+			    <input type="button" value="Delete Recipe" onClick={this.handleDelete} />
 			  </div>
 			);
 		}
