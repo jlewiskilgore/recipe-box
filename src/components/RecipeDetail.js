@@ -8,6 +8,7 @@ class RecipeDetail extends Component {
 
 		this.toggleShowIngredients = this.toggleShowIngredients.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
+		this.handleEdit = this.handleEdit.bind(this);
 	}
 
 	toggleShowIngredients() {
@@ -23,6 +24,10 @@ class RecipeDetail extends Component {
 		this.props.deleteRecipe(this.props.recipeId);
 	}
 
+	handleEdit() {
+		this.props.editRecipe(this.props.recipeId);
+	}
+
 	render() {
 		if(this.state.showIngredients == true) {
 			return (
@@ -31,7 +36,7 @@ class RecipeDetail extends Component {
 			      <h1>{this.props.recipeName}</h1>
 			      <p>{this.props.recipeIngredients}</p>
 			    </div>
-			    <input type="button" value="Edit Recipe" />
+			    <input type="button" value="Edit Recipe" onClick={this.handleEdit} />
 			    <input type="button" value="Delete Recipe" onClick={this.handleDelete} />
 			  </div>
 			);
@@ -42,7 +47,7 @@ class RecipeDetail extends Component {
 			    <div onClick={this.toggleShowIngredients}>
 			      <h1>{this.props.recipeName}</h1>
 			    </div>
-			    <input type="button" value="Edit Recipe" />
+			    <input type="button" value="Edit Recipe" onClick={this.handleEdit} />
 			    <input type="button" value="Delete Recipe" onClick={this.handleDelete} />
 			  </div>
 			);

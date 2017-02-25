@@ -22,6 +22,7 @@ class App extends Component {
 
 		this.appendRecipeList = this.appendRecipeList.bind(this);
 		this.deleteRecipeById = this.deleteRecipeById.bind(this);
+		this.editRecipeById = this.editRecipeById.bind(this);
 		this.getIndexByRecipeId = this.getIndexByRecipeId.bind(this);
 	}
 
@@ -39,6 +40,10 @@ class App extends Component {
 		});
 	}
 
+	editRecipeById(recipeId) {
+		console.log(recipeId);
+	}
+
 	getIndexByRecipeId(recipeId) {
 		for(var i=0; i<this.state.recipes.length; i++) {
 			if(this.state.recipes[i].id == recipeId) {
@@ -53,7 +58,9 @@ class App extends Component {
 		return (
 		  <div>
 		    <AddRecipe addNewRecipe={this.appendRecipeList} />
-		    <RecipeList recipeList={this.state.recipes} deleteRecipeById={this.deleteRecipeById} />
+		    <RecipeList recipeList={this.state.recipes} 
+		    			deleteRecipeById={this.deleteRecipeById} 
+		    			editRecipeById={this.editRecipeById} />
 		  </div>
 		);
 	}
