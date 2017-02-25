@@ -10,22 +10,27 @@ class AddRecipe extends Component {
 	handleSubmit(event) {
 		event.preventDefault(); // Don't refresh the page
 
-		// Generate Unique ID for Recipe
-		var ids = require('short-id');
-		var rId = ids.generate();
-
 		var rName = this.refs.recipeName;
 		var rIngredients = this.refs.recipeIngredients;
-		var recipe = {id: rId, name: rName.value, ingredients: rIngredients.value};
 
-		console.log("new recipe: " + recipe);
-		console.log(recipe.name.value + " " + recipe.ingredients.value);
-		// Send New Recipe Data to Parent
+		if(rName.value !== "" && rIngredients.value !== "") {
+			// Generate Unique ID for Recipe
+			var ids = require('short-id');
+			var rId = ids.generate();
 
-		this.props.addNewRecipe(recipe);
-		// Clear the form's text fields
-		rName.value = '';
-		rIngredients.value = '';
+			var rName = this.refs.recipeName;
+			var rIngredients = this.refs.recipeIngredients;
+			var recipe = {id: rId, name: rName.value, ingredients: rIngredients.value};
+
+			console.log("new recipe: " + recipe);
+			console.log(recipe.name.value + " " + recipe.ingredients.value);
+			// Send New Recipe Data to Parent
+
+			this.props.addNewRecipe(recipe);
+			// Clear the form's text fields
+			rName.value = '';
+			rIngredients.value = '';
+		}
 	}
 
 	render() {
