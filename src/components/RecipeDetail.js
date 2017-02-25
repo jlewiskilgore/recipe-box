@@ -4,11 +4,12 @@ class RecipeDetail extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { showIngredients: false };
+		this.state = { showIngredients: false, editMode: false };
 
 		this.toggleShowIngredients = this.toggleShowIngredients.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 		this.handleEdit = this.handleEdit.bind(this);
+		this.handleCancel = this.handleCancel.bind(this);
 	}
 
 	toggleShowIngredients() {
@@ -24,12 +25,40 @@ class RecipeDetail extends Component {
 		this.props.deleteRecipe(this.props.recipeId);
 	}
 
-	handleEdit() {
+	handleEditSave() {
 		this.props.editRecipe(this.props.recipeId);
 	}
 
+	handleEdit() {
+		if(this.state.editMode == false) {
+			this.setState({ editMode: true });
+		}
+	}
+
+	handleCancel() {
+		if(this.state.editMode == true) {
+			this.setState({ editMode: false });
+		}
+	}
+
 	render() {
-		if(this.state.showIngredients == true) {
+		if(this.state.editMode == true) {
+			return (
+			  <div className="recipe-list-item">
+			    <div onClick={this.toggleShowIngredients}>
+			      <h1>Editing: {this.props.recipeName}</h1>
+			      <label>Recipe Name:</label>
+			      <input type="text" value={this.props.recipeName} />
+			      <br />
+			      <label>Recipe Ingredients:</label>
+			      <input type="text" value={this.props.recipeIngredients} />
+			    </div>
+			    <input type="button" value="Save" onClick={this.handleEdit} />
+			    <input type="button" value="Cancel" onClick={this.handleCancel} />
+			  </div>
+			);
+		}
+		else if(this.state.showIngredients == true) {
 			return (
 			  <div className="recipe-list-item">
 			    <div onClick={this.toggleShowIngredients}>
