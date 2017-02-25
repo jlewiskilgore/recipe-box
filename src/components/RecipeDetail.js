@@ -8,6 +8,7 @@ class RecipeDetail extends Component {
 
 		this.toggleShowIngredients = this.toggleShowIngredients.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
+		this.handleEditSave = this.handleEditSave.bind(this);
 		this.handleEdit = this.handleEdit.bind(this);
 		this.handleCancel = this.handleCancel.bind(this);
 	}
@@ -53,7 +54,7 @@ class RecipeDetail extends Component {
 			      <label>Recipe Ingredients:</label>
 			      <input type="text" value={this.props.recipeIngredients} />
 			    </div>
-			    <input type="button" value="Save" onClick={this.handleEdit} />
+			    <input type="button" value="Save" onClick={this.handleEditSave} />
 			    <input type="button" value="Cancel" onClick={this.handleCancel} />
 			  </div>
 			);
