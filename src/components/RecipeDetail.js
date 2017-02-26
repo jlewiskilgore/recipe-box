@@ -55,13 +55,13 @@ class RecipeDetail extends Component {
 			    <div onClick={this.toggleShowIngredients}>
 			      <h1>Editing: {this.props.recipeName}</h1>
 			      <label>Recipe Name:</label>
-			      <input type="text" defaultValue={this.props.recipeName} ref="recipeName" />
+			      <input className="edit-recipe-text" type="text" defaultValue={this.props.recipeName} ref="recipeName" />
 			      <br />
 			      <label>Recipe Ingredients:</label>
-			      <input type="text" defaultValue={this.props.recipeIngredients} ref="recipeIngredients" />
-			    </div>
-			    <input type="button" value="Save" onClick={this.handleEditSave} />
-			    <input type="button" value="Cancel" onClick={this.handleCancel} />
+			      <input className="edit-recipe-text" type="text" defaultValue={this.props.recipeIngredients} ref="recipeIngredients" />
+			      			    </div>
+			      			    <input type="button" value="Save" onClick={this.handleEditSave} />
+			      			    <input type="button" value="Cancel" onClick={this.handleCancel} />
 			  </div>
 			);
 		}
