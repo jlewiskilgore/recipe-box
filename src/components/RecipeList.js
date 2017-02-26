@@ -13,8 +13,8 @@ class RecipeList extends Component {
 		this.props.deleteRecipeById(recipeId);
 	}
 
-	editRecipe(recipeId) {
-		this.props.editRecipeById(recipeId);
+	editRecipe(recipeId, recipeName, recipeIngredients) {
+		this.props.editRecipeById(recipeId, recipeName, recipeIngredients);
 	}
 
 	render() {

@@ -40,8 +40,10 @@ class App extends Component {
 		});
 	}
 
-	editRecipeById(recipeId) {
+	editRecipeById(recipeId, recipeName, recipeIngredients) {
 		console.log(recipeId);
+		console.log(recipeName);
+		console.log(recipeIngredients);
 	}
 
 	getIndexByRecipeId(recipeId) {

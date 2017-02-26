@@ -27,7 +27,13 @@ class RecipeDetail extends Component {
 	}
 
 	handleEditSave() {
-		this.props.editRecipe(this.props.recipeId);
+		var rName = this.refs.recipeName;
+		var rIngredients = this.refs.recipeIngredients;
+
+		if(rName.value !== '' && rIngredients.value !== '') {
+			this.props.editRecipe(this.props.recipeId, rName.value, rIngredients.value);
+			this.setState({ editMode: false });
+		}
 	}
 
 	handleEdit() {
@@ -49,10 +55,10 @@ class RecipeDetail extends Component {
 			    <div onClick={this.toggleShowIngredients}>
 			      <h1>Editing: {this.props.recipeName}</h1>
 			      <label>Recipe Name:</label>
-			      <input type="text" value={this.props.recipeName} />
+			      <input type="text" defaultValue={this.props.recipeName} ref="recipeName" />
 			      <br />
 			      <label>Recipe Ingredients:</label>
-			      <input type="text" value={this.props.recipeIngredients} />
+			      <input type="text" defaultValue={this.props.recipeIngredients} ref="recipeIngredients" />
 			    </div>
 			    <input type="button" value="Save" onClick={this.handleEditSave} />
 			    <input type="button" value="Cancel" onClick={this.handleCancel} />
