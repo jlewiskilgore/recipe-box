@@ -18,7 +18,6 @@ class RecipeList extends Component {
 	}
 
 	render() {
-		console.log(this.props.recipeList);
 		return (
 		  <div>
 		  	  {

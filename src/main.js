@@ -17,9 +17,6 @@ class App extends Component {
 			this.state = { recipes: savedRecipes };
 		}
 
-		console.log("test");
-		console.log(savedRecipes);
-
 		this.appendRecipeList = this.appendRecipeList.bind(this);
 		this.deleteRecipeById = this.deleteRecipeById.bind(this);
 		this.editRecipeById = this.editRecipeById.bind(this);
@@ -27,7 +24,6 @@ class App extends Component {
 	}
 
 	appendRecipeList(recipe) {
-		console.log("arg: " + recipe); 
 		this.setState({ recipes: this.state.recipes.concat([recipe]) });
 		localStorage.setItem('recipes', JSON.stringify(this.state.recipes));
 	}
