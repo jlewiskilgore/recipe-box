@@ -40,10 +40,13 @@ class App extends Component {
 		});
 	}
 
-	editRecipeById(recipeId, recipeName, recipeIngredients) {
-		console.log(recipeId);
-		console.log(recipeName);
-		console.log(recipeIngredients);
+	editRecipeById(recipeId, newRecipeName, newRecipeIngredients) {
+		var recipeIndex = this.getIndexByRecipeId(recipeId);
+
+		var recipes = this.state.recipes;
+		recipes[recipeIndex].name = newRecipeName;
+		recipes[recipeIndex].ingredients = newRecipeIngredients;
+		this.setState({ recipes: recipes });
 	}
 
 	getIndexByRecipeId(recipeId) {

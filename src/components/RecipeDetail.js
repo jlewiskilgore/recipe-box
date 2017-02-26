@@ -32,7 +32,7 @@ class RecipeDetail extends Component {
 
 		if(rName.value !== '' && rIngredients.value !== '') {
 			this.props.editRecipe(this.props.recipeId, rName.value, rIngredients.value);
-			this.setState({ editMode: false });
+			this.setState({ editMode: false, showIngredients: false });
 		}
 	}
 
@@ -44,7 +44,7 @@ class RecipeDetail extends Component {
 
 	handleCancel() {
 		if(this.state.editMode == true) {
-			this.setState({ editMode: false });
+			this.setState({ editMode: false, showIngredients: false });
 		}
 	}
 
